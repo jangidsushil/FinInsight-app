@@ -1,119 +1,88 @@
 # FinInsight AI
 
-**Your money, understood — privately, on your own phone.**
+**AI insights on your money — worked out on your phone.**
 
-<p align="center"><img src="screenshots/hero.jpg" alt="FinInsight screens" width="820"></p>
+FinInsight AI turns the bank, card and UPI messages already on your phone into an automatic expense tracker, clear reports, budgets, a tax-year summary and scam alerts. Everything happens on the phone: no bank login, no account, and your data is never uploaded.
 
-<p align="center"><b><a href="https://github.com/jangidsushil/FinInsight-app/releases/latest/download/FinInsight.apk">⬇️ Download for Android</a></b> · <a href="https://jangidsushil.github.io/FinInsight-app/">Website</a> · free · Android 8.0+</p>
+<p align="center"><img src="screenshots/hero.jpg" alt="FinInsight AI screens" width="820"></p>
 
-FinInsight reads the bank, card and UPI SMS already on your phone and turns them into clear books: what you spent, what came in, what's due, what you own, and which messages are scams. No bank login, no account, no upload.
+<p align="center">
+<b><a href="https://jangidsushil.github.io/FinInsight-app/download.html">⬇️ Download for Android</a></b> ·
+<a href="https://jangidsushil.github.io/FinInsight-app/">Website</a> ·
+free · Android 8.0+
+</p>
 
-## ⬇️ Download
+> **Before you download:** FinInsight reads bank SMS, so Android asks you to pause Google Play Protect for the install and to allow your browser to install apps. The [download page](https://jangidsushil.github.io/FinInsight-app/download.html) shows the exact steps for Samsung, Xiaomi/Redmi/POCO, Vivo/iQOO, Oppo/Realme/OnePlus, Motorola, Pixel and others.
 
-**[Download FinInsight (latest)](https://github.com/jangidsushil/FinInsight-app/releases/latest/download/FinInsight.apk)**
+## Your data never leaves your phone
 
-This link always gives you the newest version. Share it freely.
+- **Everything happens on the phone.** Reading messages, categorising, forecasting and answering questions — no server, no sign-up, no upload.
+- **No advertising ID shared.** The advertising-ID and ad-tracking permissions are removed from the app.
+- **Encrypted storage.** Only money messages are kept, encrypted inside the app. Personal chats and OTPs are skipped.
+- **No cloud backup.** Android's automatic cloud backup is off. Backups exist only when you make one, encrypted with your own password.
+- **Minimal permissions.** SMS, notifications and fingerprint — no contacts, location, microphone or camera.
 
-Need Android 8.0 or newer. See all versions on the [Releases page](https://github.com/jangidsushil/FinInsight-app/releases).
+## AI Insights
 
-### How to install
-
-1. Tap the download link above in your phone's browser (Chrome works well).
-2. When the download finishes, tap **Open** (or find `FinInsight.apk` in **Files › Downloads**).
-3. If Android asks, allow **"Install unknown apps"** for your browser or Files app, then go back.
-4. Tap **Install**. If you see *"This type of file can harm your device"*, tap **Download anyway** / **Install anyway** — this warning appears for every app installed outside the Play Store.
-5. Open FinInsight and follow the short set-up.
-
-**Updating:** download from the same link and tap **Update**. Your books, settings and Pro stay as they are.
+- **Spending pace and month-end forecast** — "On track for ₹46.7K this month — above your ₹30K budget."
+- **Money score out of 100** — every point explained, and the one thing to improve.
+- **Subscriptions and regular payments found** — rent, SIPs, EMIs and streaming detected from patterns.
+- **Salary, refunds and self-transfers recognised** — so totals show what you really spent.
+- **Ask in plain words** — "How much did I spend on food last month?"
+- **Tax-year summary** — salary, interest and 80C/80D items, with the old and new regimes compared.
+- **Every number shows its evidence** — tap to see the exact transactions behind it.
 
 ## Screens
 
 <p align="center">
 <img src="screenshots/home.jpg" width="200" alt="Home">
-<img src="screenshots/accounts.jpg" width="200" alt="One account">
+<img src="screenshots/insights.jpg" width="200" alt="AI insights">
 <img src="screenshots/reports.jpg" width="200" alt="Reports">
 <img src="screenshots/scams.jpg" width="200" alt="Scam Shield">
 </p>
 <p align="center">
-<img src="screenshots/plan.jpg" width="200" alt="Budgets and goals">
-<img src="screenshots/tiles.jpg" width="200" alt="Edit Home tiles">
+<img src="screenshots/accounts.jpg" width="200" alt="One account">
+<img src="screenshots/tax.jpg" width="200" alt="Tax-year summary">
+<img src="screenshots/plan.jpg" width="200" alt="Budgets and dues">
 <img src="screenshots/dark.jpg" width="200" alt="Dark theme">
-<img src="screenshots/pass.jpg" width="200" alt="Pro pass">
 </p>
 
-## What it does
+## Features
 
-- **Every bank message, read for what it means** — spending, income, investments, card bills, refunds and transfers between your own accounts, without double counting.
-- **One account, a few, or all** — look at HDFC alone, HDFC + SBI together, or everything.
-- **Any month, any year** — move back through your history; monthly, quarterly, yearly and tax-year reports with charts, PDF and Excel export.
-- **Scam Shield** — warns about fraud SMS: fake KYC, electricity cut-off, e-challan, reward points, APK links.
-- **Dues and bills** — payment requests, card bills and premiums before they're due.
-- **Budgets, savings goals, insights and a money score** — with the transactions behind every number.
-- **Ask in plain words** — "food last month", "only HDFC", "add 250 chai cash".
-- **Cash entries, bank statement check, home screen widget, app lock (PIN / fingerprint), themes.**
+**Automatic money tracking** — bank, card, UPI and wallet SMS read on the phone; no double counting of transfers between your own accounts or card-bill payments; refunds matched to purchases; cash spends in two taps; corrections remembered.
 
-## Your data stays on your phone
+**All your accounts, your way** — one account, a few, or all; balances, card limits and bills; any month or year; bank statement check (PDF, even password-protected, or CSV).
 
-This is the core promise of FinInsight:
+**Reports** — month, quarter, year, financial year, year-to-date or custom dates; month-on-month and year-on-year comparisons; categories, payees and day-by-day calendar; PDF and Excel export; shareable report cards.
 
-- **Your messages and books never leave your phone.** All reading and calculating happens on the phone. FinInsight has no server, no sign-up and no account.
-- **Only money messages are kept.** Personal chats and OTPs are skipped. What is kept is stored **encrypted** (SQLCipher) inside the app.
-- **No cloud backup by Android.** Backups happen only when *you* make one, as an encrypted file protected by *your* password, saved where *you* choose.
-- **Ads never see your data.** The free version shows non-personalised ads from Unity Ads. The ad library asks for an ad like any website would; it gets **no advertising ID** (that permission is removed from the app) and nothing from your messages or books. Pro has no ads.
-- **No contacts, location or advertising-ID permissions.** The standard edition doesn't even ask for SMS permission (see below).
-- **Reporting a problem is your choice** — it opens your own email app with what you wrote; you see it before you press Send.
+**Plan ahead** — budgets with alerts; card bills, EMIs, premiums and payment requests before they're due; savings goals that count SIPs and RDs; wealth view.
 
-## Two editions
+**Safety** — Scam Shield for fraud SMS (fake KYC, electricity cut-off, e-challan, reward points, APK links); PIN or fingerprint lock; hide amounts with one tap; encrypted backup.
 
-| | Standard (`FinInsight.apk`) | Automatic mode (`FinInsight-automatic-mode.apk`) |
-|---|---|---|
-| SMS permission | **None** — installs without Play Protect warnings | Reads SMS on the phone |
-| How messages come in | An SMS backup file ("SMS Backup & Restore" app), or share a message to FinInsight | Automatically, the moment an alert arrives |
-| Start with | ✅ This one | Only from inside the app: ☰ › Automatic mode |
+**Built around you** — Ask bar ("only HDFC", "last month", "add 250 chai cash"); customisable Home tiles; your own categories, friends & family, groups and trips; light and dark themes, colours, home-screen widget.
 
-Google Play Protect blocks apps that read SMS when they're installed outside the Play Store — it goes by the permission, not by what the app does. That's why you start with the standard edition and switch to automatic mode from inside the app, which walks you through it step by step.
+## Install
 
-## Free, trial, and Pro
+1. **Pause Play Protect** — Play Store › profile picture › Play Protect › ⚙ › turn off *Scan apps with Play Protect*.
+2. **Allow your browser to install apps** — *Install unknown apps* (older phones: *Unknown sources*) for Chrome. Samsung One UI 6+: also turn off *Auto Blocker*.
+3. **Download** [FinInsight.apk](https://github.com/jangidsushil/FinInsight-app/releases/latest/download/FinInsight.apk), install, open it, allow SMS — then **switch Play Protect back on**.
 
-- **Free, always:** the money ledger, this month and last month, Scam Shield, cash entries, dues and alerts, app lock.
-- **7-day trial:** everything else, free for the first week.
-- **After that:** watch one short ad to open one thing (an older month, a report, an export) — or collect **5 ★ (5 short ads) for a 24-hour Pro pass** with everything open.
+Phone-by-phone steps: **[jangidsushil.github.io/FinInsight-app/download.html](https://jangidsushil.github.io/FinInsight-app/download.html)**
 
-## Common problems and fixes
+**Updating:** download from the same link and tap **Update** — your books and settings stay.
 
-**"App not installed" / "Package conflicts with an existing package"**
-You have a copy signed differently (for example an old test build). Uninstall the old FinInsight first, then install again. Make a backup first if you want to keep your books: ☰ › Settings › Backup.
+## Common problems
 
-**"App not installed as package appears to be invalid"**
-The download was cut short. Delete `FinInsight.apk` from Downloads and download it again on a stable connection.
-
-**"Blocked by Play Protect" or "Harmful app blocked"**
-You're installing the automatic-mode file directly. Install the standard `FinInsight.apk` first, then switch to automatic mode from inside the app (☰ › Automatic mode) — it explains how to pause Play Protect for that one install and reminds you to turn it back on.
-
-**"Install unknown apps" setting keeps coming back**
-Android asks once per app that installs files (Chrome, Files, WhatsApp…). Allow it for the app you're installing from.
-
-**Nothing shows after set-up (standard edition)**
-The standard edition can't read SMS by itself. Make a backup with "SMS Backup & Restore" (keep only Messages switched on) and choose that file in FinInsight, or share a bank message to FinInsight from your SMS app.
-
-**A transaction is missing or wrong**
-Some banks send unusual formats. Open the transaction (or ☰ › To confirm) and correct it once — FinInsight remembers for next time. To check an account fully, import its bank statement (☰ › Bank statements).
-
-**The same account shows twice**
-Banks sometimes mask numbers differently. Open one of them in ☰ › Accounts & cards and choose **Same as another account**.
-
-**Amounts visible to people near you**
-Tap the 👁 eye at the top to hide all amounts.
-
-**No ad appears when I tap "Watch an ad"**
-Ads sometimes run out for a moment, especially on slow connections. Try again in a minute; you can watch up to 10 a day.
-
-**Notifications don't arrive**
-Allow notifications for FinInsight in Android settings, and turn off battery optimisation for it (Settings › Apps › FinInsight › Battery › Unrestricted).
+- **"App not installed" / "conflicts with an existing package"** — an older copy is signed differently. Back up (Settings › Backup), uninstall it, install again and restore.
+- **"Package appears to be invalid"** — the download was cut short; download again.
+- **"Blocked by Play Protect"** — Play Protect wasn't paused; see step 1.
+- **"Restricted setting" when allowing SMS** (Android 13+) — Settings › Apps › FinInsight › ⋮ › *Allow restricted settings*, then allow SMS again.
+- **A transaction is wrong or missing** — open it and correct it once; FinInsight remembers. Import a bank statement to fill gaps.
+- **The same account shows twice** — Accounts & cards › open one › *Same as another account*.
 
 ## Contact
 
-Found a problem? In the app: **☰ › Report a problem** (mark the problem on screen and send it), or email **fininsight@yahoo.com**.
+In the app: **☰ › Report a problem** — or email **fininsight@yahoo.com**.
 
 ---
-Made in India. Free with non-personalised ads; Pro removes them.
+Made in India · Your data stays on your phone.
