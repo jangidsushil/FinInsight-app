@@ -1,0 +1,8 @@
+{
+ "versionCode": 511,
+ "versionName": "2.0.51",
+ "apk": "FinInsight.apk",
+ "sha256": "c91635a8f29884116a479703f5b959f122f7260578385bf101d5ad3857172bf0",
+ "size": 32488110,
+ "notes": "• Updates from inside the app: FinInsight tells you when a new version is out, downloads it on Wi-Fi and installs it with one tap (Settings › App updates).\n• Report a problem: a smaller red bar you can drag anywhere, and frames you can move and resize."
+}
