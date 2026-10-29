@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinInsight AI — your money, understood, on your phone</title>
+<meta name="description" content="FinInsight reads your bank, card and UPI SMS on your phone and turns them into clear books, reports and scam warnings. No bank login, no account, nothing uploaded. Free download for Android.">
+<meta property="og:title" content="FinInsight AI — private money tracker for India">
+<meta property="og:description" content="Your bank SMS, turned into clear books — on your phone only. Free for Android.">
+<meta property="og:image" content="screenshots/hero.jpg">
+<meta name="theme-color" content="#0A6C72">
+<style>
+  :root {
+    --bg: #f4f7f6; --surface: #ffffff; --ink: #14201f; --ink2: #4a5a59; --muted: #7b8a89; --line: #dfe7e6;
+    --accent: #0A6C72; --accent-soft: #d2e9e8; --gold: #F2B21B; --good: #1e7a4a; --hero1: #0a6c72; --hero2: #2b3a7a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1416; --surface: #162022; --ink: #e8efee; --ink2: #b4c2c1; --muted: #8a9998; --line: #263335;
+      --accent: #5cbcbd; --accent-soft: #15363a; --good: #6fd29b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  h1, h2, h3 { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.15; margin: 0 0 .4em; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* top bar */
+  .top { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 700 20px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); text-decoration: none; }
+  .logo { width: 32px; height: 32px; border-radius: 9px; background: var(--hero1); display: grid; place-items: center; }
+  .top nav { margin-left: auto; display: flex; gap: 18px; }
+  .top nav a { color: var(--ink2); text-decoration: none; font-weight: 500; }
+  .top nav a:hover { color: var(--accent); }
+  @media (max-width: 720px) { .top nav { display: none; } }
+
+  /* hero */
+  .hero { background: linear-gradient(135deg, var(--hero1), var(--hero2)); color: #fff; overflow: hidden; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; align-items: center; padding-top: 64px; padding-bottom: 56px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 58px); }
+  .hero p.lead { font-size: 20px; color: #e3f1f0; max-width: 34ch; }
+  .hero img { width: 100%; border-radius: 18px; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font: 600 18px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-decoration: none; }
+  .btn.primary { background: var(--gold); color: #1c1400; box-shadow: 0 8px 24px rgba(242,178,27,.35); }
+  .btn.primary:hover { filter: brightness(1.05); }
+  .btn.ghost { color: #fff; border: 1.5px solid rgba(255,255,255,.55); }
+  .fine { font-size: 14px; color: #cfe5e4; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chip { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); padding: 5px 12px; border-radius: 999px; font-size: 14px; }
+  @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; padding-top: 40px; } .hero img { order: -1; } }
+
+  section { padding: 72px 0; }
+  section > .wrap > h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .sub { color: var(--ink2); max-width: 60ch; margin-bottom: 32px; }
+
+  /* features: screenshot + text rows */
+  .feature { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; margin: 48px 0; }
+  .feature:nth-child(even) { grid-template-columns: 1fr 300px; }
+  .feature:nth-child(even) .shot { order: 2; }
+  .shot img { width: 100%; border-radius: 26px; border: 8px solid #131a1f; box-shadow: 0 18px 40px rgba(0,0,0,.18); display: block; }
+  .feature h3 { font-size: 28px; }
+  .feature p { color: var(--ink2); }
+  .feature ul { padding-left: 1.1em; color: var(--ink2); }
+  @media (max-width: 760px) {
+    .feature, .feature:nth-child(even) { grid-template-columns: 1fr; gap: 18px; }
+    .feature:nth-child(even) .shot { order: 0; }
+    .shot { max-width: 280px; margin: 0 auto; }
+  }
+
+  /* gallery */
+  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 200px; gap: 16px; overflow-x: auto; padding: 6px 2px 18px; scroll-snap-type: x mandatory; }
+  .gallery figure { margin: 0; scroll-snap-align: start; }
+  .gallery img { width: 100%; border-radius: 20px; border: 6px solid #131a1f; display: block; }
+  .gallery figcaption { font-size: 14px; color: var(--muted); text-align: center; margin-top: 6px; }
+
+  /* privacy */
+  .privacy { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .card { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .privacy .card { background: var(--surface); }
+  .card h3 { font-size: 21px; display: flex; gap: 10px; align-items: center; }
+  .card p { color: var(--ink2); margin: 0; }
+  .ico { width: 34px; height: 34px; border-radius: 10px; background: var(--accent-soft); display: grid; place-items: center; flex: none; }
+  .ico svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* plans */
+  .plans .card h3 { font-size: 22px; }
+  .stars { color: var(--gold); letter-spacing: 2px; font-size: 22px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+  th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+  @media (max-width: 560px) { th, td { padding: 10px 8px; font-size: 15px; } th { font-size: 16px; } }
+  th { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 18px; }
+  tr:last-child td { border-bottom: 0; }
+
+  /* install steps */
+  ol.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 14px; }
+  ol.steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px 16px 64px; position: relative; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 16px; top: 14px; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font: 700 18px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+  /* faq */
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 4px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; font: 600 18px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 12px 0; }
+  details p { color: var(--ink2); margin-top: 0; }
+
+  .final { background: linear-gradient(135deg, var(--hero1), var(--hero2)); color: #fff; text-align: center; }
+  .final .cta { justify-content: center; }
+  footer { padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><span class="logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 3l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#F2B21B" stroke="none"/></svg></span>FinInsight AI</a>
+    <nav><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="#install">Install</a><a href="#help">Help</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Your money, understood.<br>On your phone only.</h1>
+      <p class="lead">FinInsight reads the bank, card and UPI messages already on your phone and turns them into clear books: what you spent, what came in, what's due — and which messages are scams.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/jangidsushil/FinInsight-app/releases/latest/download/FinInsight.apk">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
+          Download for Android</a>
+        <a class="btn ghost" href="#install">How to install</a>
+      </div>
+      <div class="fine">Free · Android 8.0 or newer · always the latest version</div>
+      <div class="chips"><span class="chip">No bank login</span><span class="chip">No account</span><span class="chip">Nothing uploaded</span><span class="chip">Made in India</span></div>
+    </div>
+    <img src="screenshots/hero.jpg" alt="FinInsight screens: Home with this month's spending, Reports, and dark mode">
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Everything your bank messages already know</h2>
+    <p class="sub">Every alert is read for what it really means — spending, income, investments, card bills, refunds and transfers between your own accounts — without counting anything twice.</p>
+
+    <div class="feature">
+      <div class="shot"><img src="screenshots/home.jpg" alt="Home screen showing spending so far this month" loading="lazy"></div>
+      <div><h3>This month at a glance</h3>
+        <p>What you've spent so far, how it compares with last month by the same day, and spending plus investments as your total outgo. Tap any figure to see the transactions behind it.</p>
+        <ul><li>Bills and payment requests before they're due</li><li>A money score, with every point explained</li><li>Add cash spends the bank never texts about</li></ul></div>
+    </div>
+
+    <div class="feature">
+      <div class="shot"><img src="screenshots/accounts.jpg" alt="Showing only the HDFC account" loading="lazy"></div>
+      <div><h3>One account, a few, or all</h3>
+        <p>Look at HDFC alone, HDFC and SBI together, or everything at once. Just tap the accounts — or type "only HDFC" in the Ask bar.</p></div>
+    </div>
+
+    <div class="feature">
+      <div class="shot"><img src="screenshots/reports.jpg" alt="Reports with money in, spent, kept and invested" loading="lazy"></div>
+      <div><h3>Reports like a finance team's</h3>
+        <p>Monthly, quarterly, yearly and tax-year reports with charts and comparisons — month on month and year on year. Export to PDF or Excel, or share a report card picture.</p></div>
+    </div>
+
+    <div class="feature">
+      <div class="shot"><img src="screenshots/scams.jpg" alt="Scam Shield flagging a fake reward points message" loading="lazy"></div>
+      <div><h3>Scam Shield</h3>
+        <p>Warns you about fraud messages — fake KYC, electricity cut-off, e-challan, "reward points expiring", APK links — and explains why each one looks wrong.</p></div>
+    </div>
+
+    <div class="feature">
+      <div class="shot"><img src="screenshots/plan.jpg" alt="Plan with a monthly budget and savings goals" loading="lazy"></div>
+      <div><h3>Budgets, goals and what's coming up</h3>
+        <p>Monthly limits with gentle alerts, savings goals that count your SIPs and RDs, and every bill and premium that's due.</p></div>
+    </div>
+
+    <div class="feature">
+      <div class="shot"><img src="screenshots/tiles.jpg" alt="Editing Home tiles" loading="lazy"></div>
+      <div><h3>Make it yours</h3>
+        <p>Move, resize, add and remove Home tiles. Pick light or dark, nine colours and a soft aurora background. Lock the app with a PIN or fingerprint, and hide amounts with one tap.</p></div>
+    </div>
+
+    <h3 style="margin-top:56px">More screens</h3>
+    <div class="gallery">
+      <figure><img src="screenshots/months.jpg" alt="Month picker" loading="lazy"><figcaption>Any month, any year</figcaption></figure>
+      <figure><img src="screenshots/where.jpg" alt="Where the money went" loading="lazy"><figcaption>Where it went</figcaption></figure>
+      <figure><img src="screenshots/insights.jpg" alt="Insights" loading="lazy"><figcaption>Insights</figcaption></figure>
+      <figure><img src="screenshots/ask.jpg" alt="Ask bar" loading="lazy"><figcaption>Ask in plain words</figcaption></figure>
+      <figure><img src="screenshots/dark.jpg" alt="Dark theme" loading="lazy"><figcaption>Dark theme</figcaption></figure>
+      <figure><img src="screenshots/customise.jpg" alt="Customise colours" loading="lazy"><figcaption>Colours & styles</figcaption></figure>
+      <figure><img src="screenshots/pass.jpg" alt="Pro pass" loading="lazy"><figcaption>Pro pass</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="privacy">
+  <div class="wrap">
+    <h2>Your data stays on your phone</h2>
+    <p class="sub">This is the core promise of FinInsight. There is no FinInsight server — so there is nothing to hack, sell or leak.</p>
+    <div class="grid">
+      <div class="card"><h3><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>Worked out on the phone</h3><p>Every message is read and every number calculated on your phone. No sign-up, no account, no upload.</p></div>
+      <div class="card"><h3><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>Encrypted storage</h3><p>Only money messages are kept, encrypted inside the app. Personal chats and OTPs are skipped.</p></div>
+      <div class="card"><h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 3l18 18"/></svg></span>No cloud backup</h3><p>Android's automatic backup is switched off. Backups happen only when you make one — encrypted with your own password.</p></div>
+      <div class="card"><h3><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>Ads never see your data</h3><p>The free version shows non-personalised ads. The ad library gets no advertising ID and nothing from your messages or books. Pro has no ads.</p></div>
+      <div class="card"><h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Few permissions</h3><p>No contacts, location or advertising ID. The standard edition doesn't even ask for SMS access.</p></div>
+      <div class="card"><h3><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H5l-1 4z"/></svg></span>You decide what's sent</h3><p>"Report a problem" opens your own email app with what you wrote. You see it before pressing Send.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans" class="plans">
+  <div class="wrap">
+    <h2>Free, with a fair way to unlock more</h2>
+    <p class="sub">No subscription is needed. The basics are free forever; the rest opens with short ads.</p>
+    <div class="grid">
+      <div class="card"><h3>Free, always</h3><p>The money ledger, this month and last month, Scam Shield, cash entries, dues and alerts, app lock.</p></div>
+      <div class="card"><h3>7-day trial</h3><p>Everything else, free for your first week: full history, budgets, goals, insights, wealth and unlimited Ask.</p></div>
+      <div class="card"><h3>One ad, one thing</h3><p>After the trial, watch one short ad to open an older month, a report, an export or the tax-year summary.</p></div>
+      <div class="card"><h3><span class="stars">★★★★★</span> Pro pass</h3><p>Collect 5 stars (5 short ads) for 24 hours of everything — and no full-screen ads.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install in a minute</h2>
+    <p class="sub">FinInsight is installed straight from this page rather than the Play Store, so Android asks you to allow it once.</p>
+    <ol class="steps">
+      <li><strong>Download.</strong> Tap <a href="https://github.com/jangidsushil/FinInsight-app/releases/latest/download/FinInsight.apk">Download for Android</a> on your phone (Chrome works well).</li>
+      <li><strong>Open the file.</strong> When the download finishes, tap <em>Open</em> — or find <code>FinInsight.apk</code> in Files › Downloads.</li>
+      <li><strong>Allow the install.</strong> If asked, allow <em>Install unknown apps</em> for your browser or Files app, then go back.</li>
+      <li><strong>Install.</strong> Tap <em>Install</em>. If Android says <em>"This type of file can harm your device"</em>, tap <em>Install anyway</em> — this appears for every app installed outside the Play Store.</li>
+      <li><strong>Set up.</strong> Open FinInsight and follow the short set-up. To update later, download from the same link and tap <em>Update</em> — your books stay as they are.</li>
+    </ol>
+    <h3 style="margin-top:40px">Two editions</h3>
+    <table>
+      <tr><th></th><th>Standard — start here</th><th>Automatic mode</th></tr>
+      <tr><td>SMS permission</td><td>None — installs without Play Protect warnings</td><td>Reads SMS on the phone</td></tr>
+      <tr><td>How messages come in</td><td>An SMS backup file ("SMS Backup &amp; Restore" app), or share a message to FinInsight</td><td>Automatically, the moment an alert arrives</td></tr>
+      <tr><td>How to get it</td><td>The download button on this page</td><td>From inside the app: ☰ › Automatic mode (it guides you)</td></tr>
+    </table>
+    <p class="fine" style="color:var(--muted)">Google Play Protect blocks apps that read SMS when they're installed outside the Play Store — it goes by the permission, not by what the app does. That's why FinInsight starts without it.</p>
+  </div>
+</section>
+
+<section id="help" class="privacy">
+  <div class="wrap">
+    <h2>Common problems and fixes</h2>
+    <details><summary>"App not installed" or "Package conflicts with an existing package"</summary><p>You have a copy signed differently (for example an old test build). Make a backup (☰ › Settings › Backup), uninstall the old FinInsight, then install again and restore.</p></details>
+    <details><summary>"App not installed as package appears to be invalid"</summary><p>The download was cut short. Delete <code>FinInsight.apk</code> from Downloads and download it again on a stable connection.</p></details>
+    <details><summary>"Blocked by Play Protect" or "Harmful app blocked"</summary><p>You're installing the automatic-mode file directly. Install the standard <code>FinInsight.apk</code> first, then switch from inside the app (☰ › Automatic mode) — it explains how to pause Play Protect for that one install and reminds you to turn it back on.</p></details>
+    <details><summary>Android keeps asking to allow "Install unknown apps"</summary><p>Android asks once for each app that installs files (Chrome, Files, WhatsApp…). Allow it for the app you're installing from.</p></details>
+    <details><summary>Nothing shows after set-up</summary><p>The standard edition can't read SMS by itself. Make a backup with "SMS Backup &amp; Restore" (keep only Messages switched on) and choose that file in FinInsight — or share a bank message to FinInsight from your SMS app.</p></details>
+    <details><summary>A transaction is missing or wrong</summary><p>Some banks send unusual formats. Open the transaction (or ☰ › To confirm) and correct it once — FinInsight remembers. To check an account completely, import its bank statement (☰ › Bank statements).</p></details>
+    <details><summary>The same account shows twice</summary><p>Banks sometimes mask numbers differently. Open one in ☰ › Accounts &amp; cards and choose <em>Same as another account</em>.</p></details>
+    <details><summary>"No ad available right now"</summary><p>Ads sometimes run out for a moment, especially on slow connections. Try again in a minute; you can watch up to 10 a day.</p></details>
+    <details><summary>Notifications don't arrive</summary><p>Allow notifications for FinInsight in Android settings, and set its battery use to <em>Unrestricted</em> (Settings › Apps › FinInsight › Battery).</p></details>
+    <details><summary>Someone nearby can see my amounts</summary><p>Tap the eye at the top of the screen to hide every amount. Set a PIN or fingerprint lock in ☰ › Settings.</p></details>
+    <p style="margin-top:24px">Still stuck? In the app: <strong>☰ › Report a problem</strong> — or email <a href="mailto:fininsight@yahoo.com">fininsight@yahoo.com</a>.</p>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Know where your money goes — privately.</h2>
+    <div class="cta"><a class="btn primary" href="https://github.com/jangidsushil/FinInsight-app/releases/latest/download/FinInsight.apk">Download FinInsight for Android</a></div>
+    <div class="fine">Free · Android 8.0 or newer · <a style="color:#fff" href="https://github.com/jangidsushil/FinInsight-app/releases">all versions</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>FinInsight AI · Made in India</span>
+    <span>Contact: <a href="mailto:fininsight@yahoo.com">fininsight@yahoo.com</a></span>
+    <span>This page has no cookies, trackers or analytics.</span>
+  </div>
+</footer>
+</body>
+</html>
