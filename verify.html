@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verify FinInsight AI: Checksum, Signing Certificate, VirusTotal</title>
+<meta name="description" content="Check that your FinInsight AI download is genuine: the APK's SHA-256 checksum, the signing certificate, the VirusTotal report and the build's privacy check.">
+<link rel="canonical" href="https://jangidsushil.github.io/FinInsight-app/verify.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#073f45">
+<meta name="google-site-verification" content="rZh0_4iYPvBzFRMc9NQw_h9Ofvsj8ow-XN2KHlKFKqU">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FinInsight AI">
+<meta property="og:title" content="Verify FinInsight AI: Checksum, Signing Certificate, VirusTotal">
+<meta property="og:description" content="Check that your FinInsight AI download is genuine: the APK's SHA-256 checksum, the signing certificate, the VirusTotal report and the build's privacy check.">
+<meta property="og:url" content="https://jangidsushil.github.io/FinInsight-app/verify.html">
+<meta property="og:image" content="https://jangidsushil.github.io/FinInsight-app/screenshots/hero.jpg">
+<meta property="og:image:width" content="1600"><meta property="og:image:height" content="900">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Verify FinInsight AI: Checksum, Signing Certificate, VirusTotal">
+<meta name="twitter:description" content="Check that your FinInsight AI download is genuine: the APK's SHA-256 checksum, the signing certificate, the VirusTotal report and the build's privacy check.">
+<meta name="twitter:image" content="https://jangidsushil.github.io/FinInsight-app/screenshots/hero.jpg">
+<script data-goatcounter="https://fininsight.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "FinInsight AI", "item": "https://jangidsushil.github.io/FinInsight-app/"}, {"@type": "ListItem", "position": 2, "name": "Verify the app", "item": "https://jangidsushil.github.io/FinInsight-app/verify.html"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="FinInsight AI home"><img src="favicon.svg" alt="" width="32" height="32">FinInsight AI</a>
+    <nav aria-label="Main">
+      <a href="./#insights">AI Insights</a><a href="./#features">Features</a><a href="./#privacy">Privacy</a><a href="./#install">Install guide</a><a href="./#faq">FAQ</a>
+      <a class="btn btn-gold" href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="guide-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="./">FinInsight AI</a> › <span>Verify the app</span></nav>
+    <span class="eyebrow">Trust</span>
+    <h1>Verify it's the real FinInsight</h1>
+    <p class="lead">FinInsight is installed from this website, so here is how to check that the file you have is the one we released — and that it keeps your data on your phone.</p>
+  </div>
+</section>
+<section class="alt">
+  <div class="wrap prose">
+<h2>The current version</h2>
+<div class="kv">
+  <div>Version</div><div data-v="name">See the app's Settings › About</div>
+  <div>File</div><div><a href="FinInsight.apk">FinInsight.apk</a> · <span data-v="size">about 32 MB</span></div>
+  <div>SHA-256 of the file</div><div class="mono" data-v="sha">Shown here when the page can read version.json</div>
+  <div>Signing certificate (SHA-256)</div><div class="mono">D3:3E:BF:52:E0:02:E9:35:EF:FF:8E:24:E0:CC:5D:52:42:BB:49:D8:4F:1E:57:64:FF:95:FC:27:61:3C:AB:64</div>
+</div>
+<p><a class="btn btn-accent" data-v="vt" hidden href="https://www.virustotal.com/" rel="noopener">See this file on VirusTotal</a></p>
+<p>VirusTotal scans a file with about 70 antivirus engines. If it says it hasn't seen this file yet, upload your download there yourself — it's free. A few engines flag any app that reads SMS, whatever it does; read each engine's reason.</p>
+
+<h2>Check the file you downloaded</h2>
+<p>Its SHA-256 checksum must match the one above, letter for letter. On a computer:</p>
+<pre class="cmd"># Windows (PowerShell)
+Get-FileHash FinInsight.apk -Algorithm SHA256
+
+# macOS or Linux
+shasum -a 256 FinInsight.apk</pre>
+<p>To check the signing certificate, use <b>apksigner</b> from the Android SDK, or any APK-inspector app on the phone:</p>
+<pre class="cmd">apksigner verify --print-certs FinInsight.apk
+
+# it should print
+Signer #1 certificate SHA-256 digest:
+d33ebf52e002e935efff8e24e0cc5d5242bb49d84f1e5764ff95fc27613cab64</pre>
+
+<h2>Updates can't be swapped</h2>
+<ul>
+<li><b>Android itself</b> installs an update only when it is signed with the same certificate as the app already on your phone. Once you have the real FinInsight, a tampered copy can't replace it — Android says "App not installed".</li>
+<li><b>The in-app updater</b> downloads only from this website over HTTPS, then checks the file's SHA-256 and its signing certificate before it offers to install. A file that doesn't match is deleted.</li>
+</ul>
+
+<h2>Nothing leaves your phone — and the build checks it</h2>
+<p>Every build of FinInsight runs a privacy check that fails the build if the app's own code opens any network connection except the update check to this website. The only other connections are made by the ad SDK, to load ads in the free version, and by Google Play, when you buy Pro. Neither is given your messages or your books, and the advertising ID is removed from the app.</p>
+<p>You can see it yourself: switch off mobile data and Wi-Fi. Everything works — reading messages, reports, Scam Shield, the lock — except ads and the update check.</p>
+
+<h2>Who makes it</h2>
+<p>FinInsight AI is made in India by an independent developer. There is no company server and no account. Questions about security or a suspicious copy: <a href="mailto:fininsight@yahoo.com">fininsight@yahoo.com</a>.</p>
+  </div>
+</section>
+<section class="final">
+  <div class="wrap">
+    <h2>Know where your money goes — privately.</h2>
+    <div class="cta"><a class="btn btn-gold" href="download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>Download FinInsight AI</a></div>
+    <div class="note">Free · Android 8.0 or newer · your data stays on your phone</div>
+  </div>
+</section>
+</main>
+<script>
+(function () {
+  fetch("version.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (m) {
+    if (!m || !m.sha256) return;
+    var sha = String(m.sha256).toLowerCase(), mb = m.size ? (m.size / 1048576).toFixed(1) + " MB" : "";
+    document.querySelectorAll("[data-v]").forEach(function (el) {
+      var k = el.getAttribute("data-v");
+      if (k === "name") el.textContent = m.versionName || el.textContent;
+      if (k === "size") el.textContent = mb || el.textContent;
+      if (k === "sha") el.textContent = sha;
+      if (k === "vt") { el.href = "https://www.virustotal.com/gui/file/" + sha; el.removeAttribute("hidden"); }
+    });
+  }).catch(function () {});
+})();
+</script>
+<footer>
+  <div class="wrap">
+    <span>© FinInsight AI · Made in India</span>
+    <span><a href="./#privacy">Privacy</a> · <a href="download.html">Download</a> · <a href="verify.html">Verify the app</a> · <a href="permissions.html">What it can and can't see</a> · <a href="changelog.html">What's new</a></span>
+    <span><a href="expense-tracker.html">Expense tracker</a> · <a href="budget-tracker.html">Budget tracker</a> · <a href="finance-tracker.html">Finance tracker</a> · <a href="upi-expense-tracker.html">UPI expense tracker</a></span>
+    <span>Contact: <a href="mailto:fininsight@yahoo.com">fininsight@yahoo.com</a> · <a href="mailto:fininsight@yahoo.com?subject=FinInsight%3A%20feature%20idea">Suggest a feature</a></span>
+    <span>No cookies and no tracking. Visits are only counted, anonymously.</span>
+  </div>
+</footer>
+</body>
+</html>
