@@ -21,6 +21,15 @@ h3 { font-size: 20px; font-weight: 700; }
 p { margin: 0 0 1em; }
 a { color: var(--accent); }
 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+/* wide screens: the page uses the width (up to 1440 px) instead of a narrow column in the middle; text lines stay readable */
+@media (min-width: 1280px) {
+  .wrap { max-width: 1440px; padding: 0 clamp(32px, 4vw, 64px); }
+  .hero .wrap { grid-template-columns: 1fr 1.2fr; gap: 64px; }
+  .cats { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .gallery { grid-auto-columns: minmax(220px, 250px); }
+}
+@media (min-width: 1680px) { .cats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
 .lead { font-size: 19px; color: var(--ink2); max-width: 62ch; }
 section { padding: 84px 0; }
